@@ -1,0 +1,35 @@
+# First item in each line is the official OSHIP tag (no space allowed), the rest is a list of aliases
+
+# ID basics
+imo, IMO
+mmsi, MMSI
+name, NAME
+call_sign, call sign
+
+# Type and heritage
+ais_type, ais type, vessel type ais
+ship_type, vessel type, type
+build_year, build year, year of build, year build, year_build
+builder
+
+# Home
+flag, flag
+home_port, home port
+owner, owner / manager,
+
+# Dimensions
+length, length_m
+beam, beam_m, breadth
+
+# weigth
+dw, deadweight, deadweight
+sdw, summer deadweight
+gt, gross_tonnage
+nt, net_tonnage
+
+# Capasity
+pass, passengers
+teu, TEU
+crude capacity
+
+# Former names

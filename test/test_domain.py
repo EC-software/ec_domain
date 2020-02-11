@@ -82,7 +82,7 @@ rex: SJ: ['Svalbard og Jan Mayen', 'Svalbard and Jan Mayen']""")
         """
         # setUp
         dom_bool = d.Domain('Boolean')
-        dom_bool.read_file(r'..\ecdomain\dom_boolean.scsv')
+        dom_bool.read_file(r'../ecdomain/dom_boolean.scsv')
         # Run tests
         self.assertEqual(str(dom_bool), """0: False
 1: True""")
@@ -92,7 +92,7 @@ rex: SJ: ['Svalbard og Jan Mayen', 'Svalbard and Jan Mayen']""")
         self.assertEqual(dom_bool.dominise('True'), ['1'])  # value -> key
         self.assertEqual(dom_bool.dominise('NO'), [])  # alias -> key (rex files not yet imported...)
         # more setUp
-        dom_bool.read_file(r'..\ecdomain\dom_boolean_rex.csv', header=False)
+        dom_bool.read_file(r'../ecdomain/dom_boolean_rex.csv', header=False)
         # more Run tests - Repeat the same tests after reading REX-file
         self.assertEqual(str(dom_bool), """0: False
 1: True
@@ -131,7 +131,7 @@ class TestDomains(unittest.TestCase):
         # setUp
         dms_small = d.Domains()
         dms_small.make_dom('Boolean')
-        dms_small.get_dom('Boolean').read_file(r'..\ecdomain\dom_boolean.scsv')
+        dms_small.get_dom('Boolean').read_file(r'../ecdomain/dom_boolean.scsv')
         # Run test
         self.assertEqual(dms_small.get_dom('Wrong_name'), None)
         self.assertEqual(str(dms_small.get_dom('Boolean')), """0: False

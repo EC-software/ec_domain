@@ -1,0 +1,10 @@
+# Demonstration file for ec_domain
+ec-domain: ver. 1.0.0
+
+# Empty lines, and anything after an # is considered comments, and are ignored
+# First item in each line is the key, second item is the description
+# First line is a header
+
+key; description
+0; False
+1; True

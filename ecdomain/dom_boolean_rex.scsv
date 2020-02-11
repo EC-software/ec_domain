@@ -1,0 +1,12 @@
+# Demonstration file for ec_domain
+ec-domain: ver. 1.0.0
+
+# This file is the Reverse-EXtender files, specifying aliases for the official key.
+ec-domain: REX (Reverse EXtender)
+
+# Empty lines, and anything after an # is considered comments, and are ignored
+# First item in each line is the official key, the rest is a list of aliases
+
+# Boolean
+0, false, FALSE, No, NO, no
+1, true, TRUE, Yes, YES, yes

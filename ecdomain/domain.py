@@ -1,7 +1,7 @@
 
 
 """ EC-domain
-    Read the README-md
+    Read the README.md, and in particular to docstrings in this file ...
     """
 import logging
 
@@ -15,8 +15,7 @@ log = logging.getLogger(__name__)
 
 
 class Domains:
-    """
-    Pluralis - contains a number of 'Domain'
+    """ Plural - contains a number of 'Domain'
     """
 
     # Class Attribute

@@ -18,9 +18,10 @@ class TestDomain(unittest.TestCase):
         self.assertEqual(dom_empty.get_val('k'), None)
         self.assertEqual(dom_empty.get_key('v'), None)
         # dominise
+        self.assertEqual(dom_empty.keys(), [])
         self.assertEqual(dom_empty.dominise('kc'), [])
         self.assertEqual(dom_empty.dominise('kc', all_hits=False), [])
-        # find
+        self.assertEqual(dom_empty.find('x'), [])
         # tearDown - Nothing to do...
 
     def test_build_and_fill_manually(self):
@@ -51,6 +52,7 @@ rex: DK: ['Danmark', 'The Kingdom of Denmark']
 rex: NO: ['Norge', 'The Kingdom of Norway']
 rex: SE: ['Sverige', 'The Kingdom of Sweden']
 rex: SJ: ['Svalbard og Jan Mayen', 'Svalbard and Jan Mayen']""")
+        self.assertEqual(dom_scandi.keys(), ['DK', 'NO', 'SE', 'SJ'])
         self.assertEqual(dom_scandi.get_val('NO'), 'Norway')
         self.assertEqual(dom_scandi.get_val('GB'), None)
         self.assertEqual(dom_scandi.get_key('Sweden'), ['SE'])

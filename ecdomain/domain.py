@@ -10,7 +10,7 @@ logging.basicConfig(
     format="%(asctime)s - [%(filename)s:%(lineno)d] - %(levelname)s - %(message)s",  # verbose
     filename="ecdomain.log",
     filemode="w",
-    level=logging.DEBUG)
+    level=logging.WARNING)
 log = logging.getLogger(__name__)
 
 
@@ -93,7 +93,7 @@ class Domain:
             self._alia[k].append(a)
 
     @staticmethod
-    def raw_read_and_clean_file(file_name):
+    def _raw_read_and_clean_file(file_name):
         with open(file_name, 'r') as fil_in:
             lst_in = fil_in.readlines()
         lst_in = [tok.split('#')[0].strip() for tok in lst_in]  # Remove anything after any #
@@ -108,7 +108,7 @@ class Domain:
         """
         # Read data
         log.info(f"reading file: {file_name}")
-        lst_in = self.raw_read_and_clean_file(file_name)
+        lst_in = self._raw_read_and_clean_file(file_name)
         lst_ec = [tok for tok in lst_in if tok[:10].lower() == 'ec-domain:']  # get all lines starting with 'ec-domain:'
         lst_ec = [tok.split(':', 1)[1].strip() for tok in lst_ec]  # Remove the 'ec-domain:' precursor
         bol_ecdomain_rex = False  # Assume False until proven True
@@ -138,8 +138,6 @@ class Domain:
                     if len(lst_rex) > 1:
                         str_keya = lst_rex[0]  # First token is the key
                         lst_ali = lst_rex[1:]  # all other tokens are aliases
-                        # if not self.is_key(str_keya):  # We don't want an alias for a non-existing key.
-                        #     self.set_kv(str_keya, str_keya)
                         for str_ali in lst_ali:
                             self.set_alias(str_keya, str_ali)
                             num_inserted += 1
@@ -153,6 +151,9 @@ class Domain:
         return num_inserted
 
     def keys(self):
+        """ Sorted list of keys in Domain
+        :return: a list
+        """
         return sorted(self._data.keys())
 
     def get_val(self, k):
@@ -225,7 +226,6 @@ class Domain:
                 if key_good not in lst_ret:
                     if any([kc in itm for itm in self.get_ali(key_good)]):  # Look through aliases
                         lst_ret.append(key_good)
-
             if all_hits:
                 return lst_ret
             else:

@@ -26,42 +26,31 @@ thereby camouflaging the two-letter values that is actually stored.
 ec-dom is an ECsoftware class for working with domains.
 
 ###### Domains 
-Domains hold a number of domains
+Domains hold a number of 'Domain'
 
-**make_dom**(name)  Creates a new (empty) domain by name 'name'. 
-Return None if domain all ready exists.
+**make_dom**(name)
 
-**get_dom**(name)  Returns the domain with name 'name'
-Return None if domain dosn't exist.
+**get_dom**(name)
 
-**del_dom**(name)  Delete the domain named 'name'.
-Return True on succes and False otherwise.
+**del_dom**(name)
 
 ###### Domain
 A single domain, holds one domain
  
-**set_kv**(k,v)  Insert the kv (key-value pair) in the domain
+**set_kv**(k,v)
 
-**set_alias**(k,a)  Insert an alias for key. Create k=k if k 
-dosn't exist 
+**set_alias**(k,a)
 
-**read_file**(file_name, header=True)  Read the file and try use the values
-as k,v to fill the domain. If header is True the first line is 
-disregarded - this is default. Return number of k,v created.
+**read_file**(file_name, header=True)
 
-**get_val**(k)  Given a key returns a value, if not exit return None
+**keys**()
 
-**get_key**(v)  Given a value returns a key, if not exit return None 
+**get_val**(k)
 
-**dominise**(kc)  Given a kc (key-candidate) return the real key if 
-posible, otherwise return None. 
-kc is searched for in keys, aliases and values - in that order. 
+**get_key**(v)
 
-**find**(kc, all=True)  First run dominise(kc), but if that returns 
-None, find will search for keys, aliases and values the are not 
-identical to, but contains kc. The search order is like dominise.
-There may be multiple hits. If parameter all is True, all results
-is returned as a list - this is default. 
-Otherwise only first result is returned in a list.
-If no results, an empty list is returned. 
-Return-object is always a list.
+**get_ali**(k)
+
+**dominise**(kc, all_hits=True)
+
+**find**(kc, all_hits=True)

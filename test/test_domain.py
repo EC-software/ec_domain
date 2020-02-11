@@ -114,5 +114,32 @@ rex: 1: ['true', 'TRUE', 'Yes', 'YES', 'yes']""")
         # tearDown - Nothing to do...
 
 
+class TestDomains(unittest.TestCase):
+    """
+    Test the add function from the Domains class (Plural)
+    """
+
+    def test_build_empty(self):  # The Empty Domain
+        # setUp
+        dms_empty = d.Domains()
+        dom_obj = dms_empty.make_dom('some name')
+        # Run test
+        self.assertEqual(dms_empty.get_dom('some name'), dom_obj)
+        self.assertEqual(str(dms_empty.get_dom('some name')), '')
+
+    def test_build_and_load_from_file_and_delete(self):
+        # setUp
+        dms_small = d.Domains()
+        dms_small.make_dom('Boolean')
+        dms_small.get_dom('Boolean').read_file(r'..\ecdomain\dom_boolean.scsv')
+        # Run test
+        self.assertEqual(dms_small.get_dom('Wrong_name'), None)
+        self.assertEqual(str(dms_small.get_dom('Boolean')), """0: False
+1: True""")
+        # tearDown
+        dms_small.del_dom('Boolean')
+        # more Run test
+        self.assertEqual(dms_small.get_dom('Boolean'), None)
+
 if __name__ == '__main__':
     unittest.main()

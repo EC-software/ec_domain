@@ -7,6 +7,8 @@ class TestDomain(unittest.TestCase):
     Test the add function from the Domain class
     """
 
+    XXX write tests for del_key()
+
     def test_build_empty(self):  # The Empty Domain
         """ The Empty Domain
         Check how functions react in this special case

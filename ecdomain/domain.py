@@ -184,6 +184,17 @@ class Domain:
         else:
             return list()
 
+    def del_key(self, k):
+        """ Deletes a key
+        Remove the key, and thereby the value, and also remove any alias.
+        :param k: the key to remove
+        :return: n/a
+        """
+        if k in self._data.keys():
+            del self._data[k]
+        if k in self._alia.keys():
+            del self._alia[k]
+
     def dominise(self, kc, all_hits=True):
         """ Given a kc (key-candidate) return the real key if possible, otherwise return None.
         kc is searched for in keys, aliases and values - in that order.

@@ -19,7 +19,7 @@ Often used in data base structures or other data structures, where a
 given field should only hold values from a limited set of values. 
 In the example above a country field should only hold values from the 
 Country_code list. 
-When shown to the user, the Country name me be used as a lable, 
+When shown to the user, the Country name may be used as a lable, 
 thereby camouflaging the two-letter values that is actually stored.  
  
 ## ec-dom
